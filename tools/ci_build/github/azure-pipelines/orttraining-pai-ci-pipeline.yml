@@ -241,10 +241,9 @@ jobs:
               pip install /build/$(BuildConfig)/dist/$whlfilename; \
               python -m onnxruntime.training.ortmodule.torch_cpp_extensions.install; \
               mkdir /home/onnxruntimedev/mnist /home/onnxruntimedev/bert_data; \
-              python orttraining_ortmodule_tests.py \
+              ORTMODULE_ROCM_TEST=1 python orttraining_ortmodule_tests.py \
                 --mnist /home/onnxruntimedev/mnist \
-                --bert_data /home/onnxruntimedev/bert_data/hf_data/glue_data/CoLA/original/raw \
-                --disable_no_cuda_test"
+                --bert_data /home/onnxruntimedev/bert_data/hf_data/glue_data/CoLA/original/raw"
       workingDirectory: $(Build.SourcesDirectory)
     displayName: 'Run orttraining_ortmodule_tests.py'
     condition: succeededOrFailed()
