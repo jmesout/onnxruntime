@@ -4,8 +4,8 @@
 
 import argparse
 import logging
-import sys
 import os
+import sys
 
 from _test_commons import run_subprocess
 
